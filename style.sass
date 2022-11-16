@@ -1,0 +1,439 @@
+$btnColor: #b2875c
+$btnColor-hover: #d5a25f
+$wordColor: #333
+@mixin image-center
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+
+/* -------- Global -------- */
+*
+  box-sizing: border-box
+  position: relative
+html, body
+  font-family: '微軟正黑體', arial
+h1,h2,h3,h4,h5,h6,p
+  margin: 0
+ul
+  margin: 0
+  padding: 0
+  list-style: none
+a
+  text-decoration: none
+  color: $wordColor
+
+/* -------- Layout -------- */
+.container
+  max-width: 1140px
+  width: 100%
+  margin: 0 auto
+.row:after
+  content: ''
+  display: block
+  clear: both
+
+// @extend 無法寫進 media query Q_Q
+%cols
+  float: left
+  padding-left: 16px
+  padding-right: 16px
+@for $col from 1 through 12
+  .col-lg-#{$col}, .col-md-#{$col}, .col-sm-#{$col}
+    @extend %cols
+
+@for $col from 1 through 12
+  .col-lg-#{$col}
+    width: 100% / 12 * $col
+@media screen and (max-width: 768px)
+  @for $col from 1 through 12
+    .col-md-#{$col}
+      width: 100% / 12 * $col
+@media screen and (max-width: 540px)
+  @for $col from 1 through 12
+    .col-sm-#{$col}
+      width: 100% / 12 * $col
+
+/* -------- Component -------- */
+/* button */
+.btn
+  display: inline-block
+  vertical-align: top
+  font-size: 16px
+  line-height: 24px
+  padding: 4px 16px
+  border-radius: 4px
+  transition: all 0.3s
+  &.btn-primary
+    background-color: $btnColor
+    border: 1px solid $btnColor
+    color: #fff
+  &.btn-primary:hover
+    background-color: $btnColor-hover
+    border: 1px solid $btnColor-hover
+  &.btn-secondary
+    border: 1px solid $btnColor
+    color: $btnColor
+  &.btn-secondary:hover
+    background-color: $btnColor
+    color: #fff
+  &.btn-large
+    padding: 8px 32px
+.btn-container
+  text-align: center
+.btn-container .btn
+  margin: 0 12px
+@media screen and (max-width: 540px)
+  .btn-container
+    display: flex
+    flex-direction: column
+    width: 240px
+    margin: 0 auto
+  .btn-container .btn
+    margin-bottom: 20px
+  .btn-container .btn:last-child
+    margin-bottom: 0
+
+/* image container */
+.image-container
+  width: 100%
+.image-container:before
+  content: ''
+  display: block
+  width: 100%
+  padding-top: 75%
+.image-container .image
+  position: absolute
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+
+/* mask-dark */
+.mask-dark
+  background-color: rgba(0,0,0,0.7)
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+/* navbar */
+.navbar
+  height: 64px
+  background-color: rgba(0,0,0,0.8)
+  position: fixed
+  z-index: 10
+  width: 100%
+  & .brand
+    display: inline-block
+    vertical-align: top
+    width: 160px
+    height: 64px
+    background-image: url('../images/common/logo.jpg ')
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+    white-space: nowrap
+    text-indent: 100%
+    overflow: hidden
+  & .nav
+    float: right
+  & .nav .nav-item
+    float: left
+  & .nav .nav-link
+    display: block
+    color: #fff
+    line-height: 24px
+    padding: 20px 16px
+    transition: color 0.3s
+  & .nav .nav-link:hover
+    color: $btnColor-hover
+@media screen and (max-width: 768px)
+  .navbar .nav
+    display: flex
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0,0,0,0.9)
+    z-index: 100
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    opacity: 0
+    visibility: hidden
+    transition: all 0.3s
+  #popup-menu:target
+    opacity: 1
+    visibility: visible
+
+/* menu-toggle */
+.navbar .menu-toggle
+  width: 48px
+  height: 48px
+  float: right
+  margin-top: 8px
+  margin-right: 8px
+  display: none
+  flex-direction: column
+  justify-content: space-evenly
+  align-items: center
+  @media screen and (max-width: 768px)
+    &
+      display: flex
+  & span
+    display: block
+    width: 32px
+    height: 2px
+    background-color: $btnColor
+.navbar .close-btn
+  width: 48px
+  height: 48px
+  position: absolute
+  top: 8px
+  right: 8px
+  & span
+    display: none
+    width: 40px
+    height: 2px
+    position: absolute
+    top: 8px
+    right: 8px
+    background-color: $btnColor
+    top: 50%
+    left: 50%
+  @media screen and (max-width: 768px)
+    & span
+      display: block
+  & span:first-child
+    transform: translate(-50%,-50%) rotate(45deg)
+  & span:last-child
+    transform: translate(-50%,-50%) rotate(-45deg)
+
+/* jumbotron */
+.jumbotron
+  padding-top: 224px
+  padding-bottom: 160px
+  background-image: url('../images/bg/bg001.jpg')
+  background-size: cover
+  background-attachment: fixed
+  & .logo-image
+    width: 320px
+    height: 320px
+    margin: 0 auto
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+  & .btn-container
+    margin: 8px
+  @media screen and (max-width: 768px)
+    &
+      padding-top: 144px
+      padding-bottom: 80px
+    & .logo-image
+      width: 200px
+      height: 200px
+
+/* hero */
+.hero
+  padding-top: 200px
+  padding-bottom: 200px
+  @media screen and (max-width: 768px)
+    &
+      padding-top: 80px
+      padding-bottom: 80px
+  &.bg-white
+    background-color: #fff
+  &.bg-gray
+    background-color: #efefef
+
+/* about preview */
+@media screen and (max-width: 768px)
+  .about-preview
+    margin-bottom: 48px
+.about-preview
+  & .title
+    font-size: 32px
+    color: $wordColor
+    margin-bottom: 24px
+    margin-top: 80px
+  @media screen and (max-width: 960px)
+    & .title
+      margin-top: 0
+  & .para
+    font-size: 16px
+    line-height: 32px
+    color: $wordColor
+    text-align: justify
+    margin-bottom: 24px
+
+/* section-intro */
+.section-intro
+  text-align: center
+  margin-bottom: 40px
+  & .title
+    font-size: 48px
+    color: $wordColor
+    margin-bottom: 24px
+  @media screen and (max-width: 768px)
+    & .title
+      font-size: 32px
+  & .para
+    font-size: 16px
+    line-height: 32px
+    color: $wordColor
+    min-width: 480px
+    margin: 0 auto
+/* service-item */
+@media screen and (max-width: 768px)
+  .service-item
+    margin-bottom: 48px
+  [class^="col-"]:last-child .service-item
+    margin-bottom: 0
+.service-item
+  & .preview
+    padding-top: 16px
+  & .title
+    font-size: 24px
+    color: $wordColor
+    margin-bottom: 8px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+  & .subtitle
+    font-size: 14px
+    color: $btnColor
+    margin-bottom: 16px
+  & .para
+    font-size: 16px
+    color: $wordColor
+    line-height: 24px
+    margin-bottom: 24px
+    text-align: justify
+    height: 72px
+    overflow: hidden
+
+/* reservation */
+.reservation
+  background-image: url('../images/bg/bg002.jpg')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  background-attachment: fixed
+  & .section-intro .title, & .section-intro .para
+    color: #fff
+
+/* menu-list */
+.menu-list
+  margin-bottom: 64px
+  &:last-child
+    margin-bottom: 0
+  & .title-bar:after
+    content: ''
+    display: block
+    clear: both
+  & .title-bar .title
+    font-size: 24px
+    line-height: 40px
+    color: $btnColor
+    float: left
+    padding-left: 16px
+    margin-bottom: 16px
+  & .title-bar .title:before
+    content: ''
+    display: inline-block
+    width: 4px
+    height: 24px
+    background-color: $btnColor
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translate(0,-50%)
+  & .title-bar .btn
+    float: right
+    padding-top: 8px
+    padding-bottom: 8px
+  & .list-item .image-container:before
+    padding-top: 100%
+  & .list-item .title
+    font-size: 18px
+    color: $wordColor
+    line-height: 24px
+    margin-top: 16px
+    margin-bottom: 8px
+  & .list-item .subtitle
+    font-size: 14px
+    color: $btnColor
+
+/* contact */
+.info-item
+  margin-bottom: 24px
+  & .title
+    color: $btnColor
+    line-height: 36pxpx
+    margin-bottom: 16px
+  & .title span
+    border-bottom: 2px solid $btnColor
+    display: inline-block
+.map-container
+  width: 100%
+  padding-top: 75%
+.map-container iframe
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+
+/* footer */
+footer
+  background-image: url('../images/bg/bg003.jpg')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  background-attachment: fixed
+  & .brand
+    display: block
+    width: 240px
+    height: 240px
+    margin: 0 auto
+    background-image: url('../images/common/logo-w.png')
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+  @media screen and (max-width: 540px)
+     & .brand
+      width: 200px
+      height: 200px
+  & .nav
+    display: flex
+    justify-content: center
+  & .nav .nav-link
+    color: #fff
+    display: block
+    padding: 24px
+    transition: all 0.3s
+  & .nav .nav-link:hover
+    color: $btnColor
+  @media screen and (max-width: 540px)
+    & .nav .nav-link
+      padding: 24px 8px
+  & .copyright
+    background-color: rgba(0,0,0,0.8)
+    color: #fff
+    text-align: center
+    line-height: 24px
+    padding: 16px 0
+    font-size: 14px
+/* -------- Utility -------- */
+.lg-hidden
+  display: none
+@media screen and (max-width: 768px)
+  .lg-hidden
+    display: block
+  .lg-display
+    display: none
