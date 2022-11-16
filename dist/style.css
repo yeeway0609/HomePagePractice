@@ -410,7 +410,7 @@ a {
   background-position: center;
 }
 .jumbotron .btn-container {
-  margin: 8px;
+  margin: 8px auto;
 }
 @media screen and (max-width: 768px) {
   .jumbotron {
