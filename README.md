@@ -1,4 +1,4 @@
-咖啡廳網站首頁切版練習
+# 咖啡廳網站首頁切版練習
 ==
 ## Skill
 - html/css
@@ -7,7 +7,7 @@
 - 格線系統
 
 ## Demo
-[GitHub Pages](https://yeeway0609.github.io/HomePagePractice/dist/index.html)
+[GitHub Pages](https://yeeway0609.github.io/HomePagePractice/)
 
 ## Preview
 ![](images/cafe_preview.png)
