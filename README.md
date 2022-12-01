@@ -6,7 +6,7 @@
 - 格線系統
 
 ## Demo
-[GitHub Pages](https://yeeway0609.github.io/HomePagePractice/)
+[GitHub Pages](https://yeeway0609.github.io/home-page-project/)
 
 ## Preview
 ![](images/cafe_preview.png)
