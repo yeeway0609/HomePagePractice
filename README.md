@@ -5,7 +5,7 @@
 - RWD 斷點: `540px`, `768px`
 - 格線系統
 
-## eployment
+## Deployment
 [GitHub Pages](https://yeeway0609.github.io/home-page-project/)
 
 ## Preview
