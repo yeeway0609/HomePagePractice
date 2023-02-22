@@ -6,7 +6,7 @@
 - 格線系統
 
 ## Deployment
-[GitHub Pages](https://yeeway0609.github.io/home-page-project/)
+[GitHub Pages](https://yeeway0609.github.io/cafe-landing-page/)
 
 ## Preview
 ![](images/cafe_preview.png)
