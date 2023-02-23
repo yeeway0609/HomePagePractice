@@ -5,7 +5,7 @@
 - RWD 斷點: `540px`, `768px`
 - 格線系統
 
-## Demo
+## Deployment
 [GitHub Pages](https://yeeway0609.github.io/cafe-landing-page/)
 
 ## Preview
