@@ -1,6 +1,9 @@
 $btnColor: #b2875c
 $btnColor-hover: #d5a25f
 $wordColor: #333
+$width-lg: 960px
+$width-md: 768px
+$width-sm: 540px
 @mixin image-center
   background-size: cover
   background-repeat: no-repeat
@@ -10,15 +13,19 @@ $wordColor: #333
 *
   box-sizing: border-box
   position: relative
+
 html, body
   font-family: '微軟正黑體', arial
   background-color: #000
+
 h1,h2,h3,h4,h5,h6,p
   margin: 0
+
 ul
   margin: 0
   padding: 0
   list-style: none
+
 a
   text-decoration: none
   color: $wordColor
@@ -28,28 +35,31 @@ a
   max-width: 1140px
   width: 100%
   margin: 0 auto
+
 .row:after
   content: ''
   display: block
   clear: both
 
-// @extend 無法寫進 media query Q_Q
 %cols
   float: left
   padding-left: 16px
   padding-right: 16px
+
 @for $col from 1 through 12
   .col-lg-#{$col}, .col-md-#{$col}, .col-sm-#{$col}
-    @extend %cols
+    @extend %cols  // @extend 無法寫進 media query
 
 @for $col from 1 through 12
   .col-lg-#{$col}
     width: 100% / 12 * $col
-@media screen and (max-width: 768px)
+
+@media screen and (max-width: $width-md)
   @for $col from 1 through 12
     .col-md-#{$col}
       width: 100% / 12 * $col
-@media screen and (max-width: 540px)
+
+@media screen and (max-width: $width-sm)
   @for $col from 1 through 12
     .col-sm-#{$col}
       width: 100% / 12 * $col
@@ -79,11 +89,14 @@ a
     color: #fff
   &.btn-large
     padding: 8px 32px
+
 .btn-container
   text-align: center
+
 .btn-container .btn
   margin: 0 12px
-@media screen and (max-width: 540px)
+
+@media screen and (max-width: $width-sm)
   .btn-container
     display: flex
     flex-direction: column
@@ -97,11 +110,8 @@ a
 /* image container */
 .image-container
   width: 100%
-.image-container:before
-  content: ''
-  display: block
-  width: 100%
-  padding-top: 75%
+  aspect-ratio: 4/3
+
 .image-container .image
   position: absolute
   left: 0
@@ -111,6 +121,7 @@ a
   background-size: cover
   background-repeat: no-repeat
   background-position: center
+  border-radius: 10px
 
 /* mask-dark */
 .mask-dark
@@ -152,7 +163,8 @@ a
     transition: color 0.3s
   & .nav .nav-link:hover
     color: $btnColor-hover
-@media screen and (max-width: 768px)
+
+@media screen and (max-width: $width-md)
   .navbar .nav
     display: flex
     position: fixed
@@ -183,7 +195,7 @@ a
   flex-direction: column
   justify-content: space-evenly
   align-items: center
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: $width-md)
     &
       display: flex
   & span
@@ -191,6 +203,7 @@ a
     width: 32px
     height: 2px
     background-color: $btnColor
+
 .navbar .close-btn
   width: 48px
   height: 48px
@@ -207,7 +220,7 @@ a
     background-color: $btnColor
     top: 50%
     left: 50%
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: $width-md)
     & span
       display: block
   & span:first-child
@@ -231,7 +244,7 @@ a
     background-position: center
   & .btn-container
     margin: 8px auto
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: $width-md)
     &
       padding-top: 144px
       padding-bottom: 80px
@@ -243,7 +256,7 @@ a
 .hero
   padding-top: 200px
   padding-bottom: 200px
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: $width-md)
     &
       padding-top: 80px
       padding-bottom: 80px
@@ -253,16 +266,17 @@ a
     background-color: #efefef
 
 /* about preview */
-@media screen and (max-width: 768px)
+@media screen and (max-width: $width-md)
   .about-preview
     margin-bottom: 48px
+
 .about-preview
   & .title
     font-size: 32px
     color: $wordColor
     margin-bottom: 24px
     margin-top: 80px
-  @media screen and (max-width: 960px)
+  @media screen and (max-width: $width-lg)
     & .title
       margin-top: 0
   & .para
@@ -280,7 +294,7 @@ a
     font-size: 48px
     color: $wordColor
     margin-bottom: 24px
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: $width-md)
     & .title
       font-size: 32px
   & .para
@@ -289,12 +303,14 @@ a
     color: $wordColor
     min-width: 480px
     margin: 0 auto
+
 /* service-item */
-@media screen and (max-width: 768px)
+@media screen and (max-width: $width-md)
   .service-item
     margin-bottom: 48px
   [class^="col-"]:last-child .service-item
     margin-bottom: 0
+
 .service-item
   & .preview
     padding-top: 16px
@@ -358,8 +374,8 @@ a
     float: right
     padding-top: 8px
     padding-bottom: 8px
-  & .list-item .image-container:before
-    padding-top: 100%
+  & .list-item .image-container
+    aspect-ratio: 1/1
   & .list-item .title
     font-size: 18px
     color: $wordColor
@@ -380,9 +396,11 @@ a
   & .title span
     border-bottom: 2px solid $btnColor
     display: inline-block
+
 .map-container
   width: 100%
   padding-top: 75%
+
 .map-container iframe
   position: absolute
   left: 0
@@ -397,6 +415,9 @@ footer
   background-repeat: no-repeat
   background-position: center
   background-attachment: fixed
+  & .hero
+    padding-top: 50px
+    padding-bottom: 50px
   & .brand
     display: block
     width: 240px
@@ -406,7 +427,7 @@ footer
     background-size: contain
     background-repeat: no-repeat
     background-position: center
-  @media screen and (max-width: 540px)
+  @media screen and (max-width: $width-sm)
      & .brand
       width: 200px
       height: 200px
@@ -420,7 +441,7 @@ footer
     transition: all 0.3s
   & .nav .nav-link:hover
     color: $btnColor
-  @media screen and (max-width: 540px)
+  @media screen and (max-width: $width-sm)
     & .nav .nav-link
       padding: 24px 8px
   & .copyright
@@ -430,10 +451,12 @@ footer
     line-height: 24px
     padding: 16px 0
     font-size: 14px
+
 /* -------- Utility -------- */
 .lg-hidden
   display: none
-@media screen and (max-width: 768px)
+
+@media screen and (max-width: $width-md)
   .lg-hidden
     display: block
   .lg-display
