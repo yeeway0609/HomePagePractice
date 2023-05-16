@@ -1,0 +1,59 @@
+DOCTYPE(html)
+html(lang="zh-TW")
+head
+  meta(charset="UTF-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  title café website
+  link(rel="stylesheet", href="css/normalize.css")
+  link(rel="stylesheet", href="css/style.css")
+body
+  .wrapper
+    header
+      .navbar
+        .container
+          a(href="./index.html").brand
+            h1 cafe website
+          #popup-menu.nav
+            a(href="./index.html").nav-link 回前頁
+            //- for RWD
+            a(href="#!").close-btn
+              span
+              span
+          //- for RWD
+          a(href="#popup-menu").menu-toggle
+            span
+            span
+            span
+
+    section.hero.bg-gray
+      .container
+        .section-intro
+          h2.title Reservation
+        .row
+          .col-lg-6.col-md-12
+            .contact-info
+              .info-item
+                h4.title
+                  span PHONE
+                a(href="tel:0987878787").info 0987-878-787
+            .contact-info
+              .info-item
+                h4.title
+                  span LOCATION
+                a(href="#!").info 台北市信義區信義路五段7號
+            .contact-info
+              .info-item
+                h4.title
+                  span HOURS
+                a(href="#!").info 週一至週五 上午8:00至下午8:00
+
+    footer
+      .hero
+        .mask-dark
+        .container
+          a(href="#!").brand
+          ul.nav
+            a(href="../index.html").nav-link 回前頁
+      .copyright
+        p Photos from freepik and Unsplash and PNGitem
+        p Copyright 2022. All rights reserved.

@@ -11,19 +11,14 @@ body
     header
       .navbar
         .container
-          a(href="#!").brand
+          a(href="./index.html").brand
             h1 cafe website
-          ul#popup-menu.nav
-            li.nav-item
-              a(href="#about").nav-link 關於
-            li.nav-item
-              a(href="#service").nav-link 服務
-            li.nav-item
-              a(href="#reservation").nav-link 訂位
-            li.nav-item
-              a(href="#menu").nav-link 菜單
-            li.nav-item
-              a(href="#contact").nav-link 聯絡
+          #popup-menu.nav
+            a(href="#about").nav-link 關於
+            a(href="#service").nav-link 服務
+            a(href="#reservation").nav-link 訂位
+            a(href="#menu").nav-link 菜單
+            a(href="#contact").nav-link 聯絡
             //- for RWD
             a(href="#!").close-btn
               span
@@ -39,7 +34,7 @@ body
       .container
         div(style="background-image: url(images/common/logo-w.png);").logo-image
         .btn-container
-          a(href="#!").btn.btn-primary.btn-large 按鈕
+          a(href="./reservation.html").btn.btn-primary.btn-large 訂位
           a(href="#!").btn.btn-secondary.btn-large 按鈕
 
     section#about.hero.bg-white
@@ -48,7 +43,7 @@ body
           .col-lg-6.col-md-12
             .about-preview
               h3.title 每杯咖啡留著手的餘溫
-              p.para 故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹故事介紹
+              p.para 想要創造一個小角落，讓人們在這裡可以感受到文學與藝術的氛圍，同時品嚐到高品質的咖啡和美味的糕點。我們相信一杯咖啡可以喚起內心最深層的情感，讓人們重新發現生命中美好的事物。<br>在這個喧囂的都市中，我們希望能夠提供一個靜謐的空間，讓每位客人都能在這裡找到心靈的寄託。這是我們經營咖啡廳的初衷，希望與您分享這份生活態度。
               a(href="#!").btn.btn-primary 更多我們的故事
           .col-lg-6.col-md-12
             .image-container
@@ -58,7 +53,7 @@ body
       .container
         .section-intro
           h2.title SERVICES
-          p.para 一段中文的敘述文字，說明東西的每位及外觀等等的話。多的文字可以換行
+          p.para 用手沖咖啡的溫度，喚醒您完美的每一天
         .row
           .col-lg-4.col-md-6.col-sm-12
             .service-item
@@ -74,8 +69,8 @@ body
               .image-container
                 div(style="background-image: url(images/products/product003.jpg);").image
               .preview
-                h4.title 手作甜點
-                h5.subtitle 現煮的香濃咖啡，優質的咖啡豆
+                h4.title 甜點
+                h5.subtitle 吃進你口，甜入你心
                 p.para 一段中文的敘述文字，說明東西的美味及外觀等等的話。一段中文的敘述文字，說明東西的美味及外觀等等的話。一段中文的敘述文字，說明東西的美味及外觀等等的話。
                 a(href="#!").btn.btn-secondary Read more
           .col-lg-4.col-md-6.col-sm-12
@@ -84,7 +79,7 @@ body
                 div(style="background-image: url(images/products/product004.jpg);").image
               .preview
                 h4.title 飲品
-                h5.subtitle 現煮的香濃咖啡，優質的咖啡豆
+                h5.subtitle 清涼水果茶與零咖啡因茶飲
                 p.para 一段中文的敘述文字，說明東西的美味及外觀等等的話。一段中文的敘述文字，說明東西的美味及外觀等等的話。一段中文的敘述文字，說明東西的美味及外觀等等的話。
                 a(href="#!").btn.btn-secondary Read more
 
@@ -93,9 +88,9 @@ body
       .container
         .section-intro
           h2.title RESERVATION
-          p.para 一段中文的敘述文字，說明東西的每位及外觀等等的話。多的文字可以換行
+          p.para 線上確認訂位情況以及預約訂位
         .btn-container
-          a(href="#!").btn.btn-secondary.btn-large 訂位請點我
+          a(href="./reservation.html").btn.btn-secondary.btn-large 訂位請點我
 
     //- 宣告用在 menu 的 mixin
     mixin ListItem(name, des, imageUrl)
@@ -149,7 +144,7 @@ body
       .container
         .section-intro
           h2.title CONTACT
-          p.para 我們提供的服務，聯繫方式等等的話 。多的文字可以換行
+          p.para 透過任何方式聯繫我們，或是到現場享受一杯好咖啡
         .row
           .col-lg-6.col-md-12
             .contact-info
@@ -176,17 +171,12 @@ body
         .mask-dark
         .container
           a(href="#!").brand
-          ul.nav
-            li.nav-item
-              a(href="#about").nav-link 關於
-            li.nav-item
-              a(href="#service").nav-link 服務
-            li.nav-item
-              a(href="#reservation").nav-link 訂位
-            li.nav-item
-              a(href="#menu").nav-link 菜單
-            li.nav-item
-              a(href="#contact").nav-link 聯絡
+          .nav
+            a(href="#about").nav-link 關於
+            a(href="#service").nav-link 服務
+            a(href="#reservation").nav-link 訂位
+            a(href="#menu").nav-link 菜單
+            a(href="#contact").nav-link 聯絡
       .copyright
         p Photos from freepik and Unsplash and PNGitem
         p Copyright 2022. All rights reserved.

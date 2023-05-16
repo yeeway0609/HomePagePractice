@@ -14,12 +14,6 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 a {
   text-decoration: none;
   color: #333;
@@ -251,7 +245,6 @@ a {
   width: 100%;
   aspect-ratio: 4/3;
 }
-
 .image-container .image {
   position: absolute;
   left: 0;
@@ -277,7 +270,7 @@ a {
 /* navbar */
 .navbar {
   height: 64px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: black;
   position: fixed;
   z-index: 10;
   width: 100%;
@@ -296,10 +289,8 @@ a {
   overflow: hidden;
 }
 .navbar .nav {
+  display: flex;
   float: right;
-}
-.navbar .nav .nav-item {
-  float: left;
 }
 .navbar .nav .nav-link {
   display: block;
@@ -360,14 +351,19 @@ a {
 }
 
 .navbar .close-btn {
+  display: none;
   width: 48px;
   height: 48px;
   position: absolute;
   top: 8px;
   right: 8px;
 }
+@media screen and (max-width: 768px) {
+  .navbar .close-btn {
+    display: block;
+  }
+}
 .navbar .close-btn span {
-  display: none;
   width: 40px;
   height: 2px;
   position: absolute;
@@ -376,11 +372,6 @@ a {
   background-color: #b2875c;
   top: 50%;
   left: 50%;
-}
-@media screen and (max-width: 768px) {
-  .navbar .close-btn span {
-    display: block;
-  }
 }
 .navbar .close-btn span:first-child {
   transform: translate(-50%, -50%) rotate(45deg);
@@ -421,8 +412,8 @@ a {
 
 /* hero */
 .hero {
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 @media screen and (max-width: 768px) {
   .hero {
@@ -437,7 +428,7 @@ a {
   background-color: #efefef;
 }
 
-/* about preview */
+/* About us */
 @media screen and (max-width: 768px) {
   .about-preview {
     margin-bottom: 48px;
@@ -447,7 +438,7 @@ a {
   font-size: 32px;
   color: #333;
   margin-bottom: 24px;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 @media screen and (max-width: 960px) {
   .about-preview .title {
@@ -627,7 +618,7 @@ footer .hero {
 footer .brand {
   display: block;
   width: 240px;
-  height: 240px;
+  height: 120px;
   margin: 0 auto;
   background-image: url("../images/common/logo-w.png");
   background-size: contain;
@@ -644,17 +635,17 @@ footer .nav {
   display: flex;
   justify-content: center;
 }
-footer .nav .nav-link {
+footer .nav-link {
   color: #fff;
   display: block;
   padding: 24px;
   transition: all 0.3s;
 }
-footer .nav .nav-link:hover {
+footer .nav-link:hover {
   color: #b2875c;
 }
 @media screen and (max-width: 540px) {
-  footer .nav .nav-link {
+  footer .nav-link {
     padding: 24px 8px;
   }
 }
@@ -681,3 +672,4 @@ footer .copyright {
     display: none;
   }
 }
+/* -------- reservation.html -------- */
