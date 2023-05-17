@@ -7,39 +7,218 @@
   <title>café website</title>
   <link rel="stylesheet" href="css/normalize.css"/>
   <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <div class="wrapper">
-    <header>
-      <div class="navbar">
-        <div class="container"><a class="brand" href="./index.html">
-            <h1>cafe website</h1></a>
-          <div class="nav" id="popup-menu"><a class="nav-link" href="./index.html">回前頁</a><a class="close-btn" href="#!"><span></span><span></span></a></div><a class="menu-toggle" href="#popup-menu"><span></span><span></span><span></span></a>
-        </div>
+    <header class="navbar">
+      <div class="container"><a class="brand" href="./index.html"></a>
+        <div class="nav"><a class="nav-link" href="./index.html">回前頁</a></div>
       </div>
     </header>
     <section class="hero bg-gray">
       <div class="container">
         <div class="section-intro">
-          <h2 class="title">Reservation</h2>
+          <h2 class="title">線上訂位</h2>
         </div>
         <div class="row">
-          <div class="col-lg-6 col-md-12">
-            <div class="contact-info">
-              <div class="info-item">
-                <h4 class="title"><span>PHONE</span></h4><a class="info" href="tel:0987878787">0987-878-787</a>
+          <div class="col-lg-6 col-md-12 flex-col-center">
+            <form class="reservation-form" action="/booking" method="post">
+              <div class="inputbox">
+                <input type="text" name="name" required="required"/>
+                <label for="name">姓名</label>
               </div>
-            </div>
-            <div class="contact-info">
-              <div class="info-item">
-                <h4 class="title"><span>LOCATION</span></h4><a class="info" href="#!">台北市信義區信義路五段7號</a>
+              <div class="inputbox">
+                <input type="email" name="email" required="required"/>
+                <label for="email">電子郵件</label>
               </div>
-            </div>
-            <div class="contact-info">
-              <div class="info-item">
-                <h4 class="title"><span>HOURS</span></h4><a class="info" href="#!">週一至週五 上午8:00至下午8:00</a>
+              <div class="inputbox">
+                <input type="tel" name="phone" required="required"/>
+                <label for="phone">聯絡電話</label>
               </div>
-            </div>
+              <div class="inputbox">
+                <select id="date" name="date" required="required">
+                  <option selected="selected" disabled="disabled"></option>
+                  <option value="Sun">6/1(日)</option>
+                  <option value="Mon">6/2(一)</option>
+                  <option value="Tue">6/3(二)</option>
+                  <option value="Wed">6/4(三)</option>
+                  <option value="Thu">6/5(四)</option>
+                  <option value="Fri">6/6(五)</option>
+                  <option value="Sat">6/7(六)</option>
+                </select>
+                <label for="date">日期</label>
+              </div>
+              <div class="inputbox">
+                <select id="time" name="time" required="required">
+                  <option selected="selected" disabled="disabled"></option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                </select>
+                <label for="time">時間</label>
+              </div>
+              <div class="inputbox">
+                <input type="number" name="guests" required="required"/>
+                <label for="guests">人數</label>
+              </div>
+              <input class="submit" type="submit" value="預約訂位"/>
+            </form>
+          </div>
+          <div class="col-lg-6 col-md-12 flex-col-center">
+            <table class="calender">
+              <tr>
+                <td>時段</td>
+                <td>6/1(日)</td>
+                <td>6/2(一)</td>
+                <td>6/3(二)</td>
+                <td>6/4(三)</td>
+                <td>6/5(四)</td>
+                <td>6/6(五)</td>
+                <td>6/7(六)</td>
+              </tr>
+              <tr>
+                <td>08:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>09:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>10:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>11:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>12:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>13:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>14:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>15:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>16:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>17:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>18:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>19:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+              <tr>
+                <td>20:00</td>
+                <td class="Sun"></td>
+                <td class="Mon"></td>
+                <td class="Tue"></td>
+                <td class="Wed"></td>
+                <td class="Thu"></td>
+                <td class="Fri"></td>
+                <td class="Sat"></td>
+              </tr>
+            </table><span style="background-color: pink; padding: 5px 10px; border-radius: 5px">填色代表該時段已預訂</span>
           </div>
         </div>
       </div>
@@ -57,4 +236,17 @@
       </div>
     </footer>
   </div>
+  <script>
+    $('td:contains("10:00") ~ td.Tue').css('background-color', 'pink');
+    $('td:contains("19:00") ~ td.Wed').css('background-color', 'pink');
+    
+    const form = $('form');
+    form.submit((evt) => {
+      evt.preventDefault();
+      let Day = $('#date').val();
+      let time = $('#time').val();
+      $(`td:contains("${time}") ~ td.${Day}`).css('background-color', 'pink');
+      form[0].reset();
+    })
+  </script>
 </body>

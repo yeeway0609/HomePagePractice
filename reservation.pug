@@ -6,46 +6,107 @@ head
   title café website
   link(rel="stylesheet", href="css/normalize.css")
   link(rel="stylesheet", href="css/style.css")
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
 body
   .wrapper
-    header
-      .navbar
-        .container
-          a(href="./index.html").brand
-            h1 cafe website
-          #popup-menu.nav
-            a(href="./index.html").nav-link 回前頁
-            //- for RWD
-            a(href="#!").close-btn
-              span
-              span
-          //- for RWD
-          a(href="#popup-menu").menu-toggle
-            span
-            span
-            span
+    header.navbar
+      .container
+        a(href="./index.html").brand
+        .nav
+          a(href="./index.html").nav-link 回前頁
 
     section.hero.bg-gray
       .container
         .section-intro
-          h2.title Reservation
+          h2.title 線上訂位
         .row
-          .col-lg-6.col-md-12
-            .contact-info
-              .info-item
-                h4.title
-                  span PHONE
-                a(href="tel:0987878787").info 0987-878-787
-            .contact-info
-              .info-item
-                h4.title
-                  span LOCATION
-                a(href="#!").info 台北市信義區信義路五段7號
-            .contact-info
-              .info-item
-                h4.title
-                  span HOURS
-                a(href="#!").info 週一至週五 上午8:00至下午8:00
+          .col-lg-6.col-md-12.flex-col-center
+            form.reservation-form(action="/booking" method="post")
+              .inputbox
+                input(type="text" name="name" required)
+                label(for="name") 姓名
+              .inputbox
+                input(type="email" name="email" required)
+                label(for="email") 電子郵件
+              .inputbox
+                input(type="tel" name="phone" required)
+                label(for="phone") 聯絡電話
+              .inputbox
+                select#date(name="date" required)
+                  option(selected="selected" disabled="disabled")
+                  option(value="Sun") 6/1(日)
+                  option(value="Mon") 6/2(一)
+                  option(value="Tue") 6/3(二)
+                  option(value="Wed") 6/4(三)
+                  option(value="Thu") 6/5(四)
+                  option(value="Fri") 6/6(五)
+                  option(value="Sat") 6/7(六)
+                label(for="date") 日期
+              .inputbox
+                select#time(name="time" required)
+                  option(selected="selected" disabled="disabled")
+                  option(value="08:00") 08:00
+                  option(value="09:00") 09:00
+                  option(value="10:00") 10:00
+                  option(value="11:00") 11:00
+                  option(value="12:00") 12:00
+                  option(value="13:00") 13:00
+                  option(value="14:00") 14:00
+                  option(value="15:00") 15:00
+                  option(value="16:00") 16:00
+                  option(value="17:00") 17:00
+                  option(value="18:00") 18:00
+                  option(value="19:00") 19:00
+                  option(value="20:00") 20:00
+                label(for="time") 時間
+              .inputbox
+                input(type="number" name="guests" required)
+                label(for="guests") 人數
+              input.submit(type="submit" value="預約訂位")
+
+          .col-lg-6.col-md-12.flex-col-center
+            table.calender
+              tr
+                td 時段
+                td 6/1(日)
+                td 6/2(一)
+                td 6/3(二)
+                td 6/4(三)
+                td 6/5(四)
+                td 6/6(五)
+                td 6/7(六)
+              tr
+                td 08:00
+                td.Sun
+                td.Mon
+                td.Tue
+                td.Wed
+                td.Thu
+                td.Fri
+                td.Sat
+              tr
+                td 09:00
+                td.Sun
+                td.Mon
+                td.Tue
+                td.Wed
+                td.Thu
+                td.Fri
+                td.Sat
+              - var n = 10;
+              while n <= 20
+                tr
+                  td=n++
+                    | :00
+                  td.Sun
+                  td.Mon
+                  td.Tue
+                  td.Wed
+                  td.Thu
+                  td.Fri
+                  td.Sat
+            span(style="background-color: pink; padding: 5px 10px; border-radius: 5px") 填色代表該時段已預訂
 
     footer
       .hero
@@ -57,3 +118,20 @@ body
       .copyright
         p Photos from freepik and Unsplash and PNGitem
         p Copyright 2022. All rights reserved.
+
+  script.
+    $('td:contains("10:00") ~ td.Tue').css('background-color', 'pink');
+    $('td:contains("19:00") ~ td.Wed').css('background-color', 'pink');
+
+    const form = $('form');
+    form.submit((evt) => {
+      evt.preventDefault();
+      let Day = $('#date').val();
+      let time = $('#time').val();
+      $(`td:contains("${time}") ~ td.${Day}`).css('background-color', 'pink');
+      form[0].reset();
+    })
+
+
+
+

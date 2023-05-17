@@ -304,7 +304,7 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-  .navbar .nav {
+  .navbar #popup-menu {
     display: flex;
     position: fixed;
     left: 0;
@@ -672,4 +672,60 @@ footer .copyright {
     display: none;
   }
 }
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* -------- reservation.html -------- */
+.inputbox {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 40px;
+}
+.inputbox input, .inputbox select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+.inputbox label {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+.inputbox input:focus ~ label, .inputbox input:valid ~ label, .inputbox select:focus ~ label, .inputbox select:valid ~ label {
+  color: #b2875c;
+  transform: translateX(-17px) translateY(-35px);
+}
+
+.submit {
+  width: 50%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  background: #b2875c;
+}
+.submit:hover {
+  background: #d5a25f;
+}
+
+.calender {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+.calender tr:first-child {
+  color: #efefef;
+  background: #b2875c;
+}
+.calender td {
+  text-align: center;
+  padding: 5px 10px;
+  border: 2px solid black;
+}

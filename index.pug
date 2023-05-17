@@ -8,26 +8,25 @@ head
   link(rel="stylesheet", href="css/style.css")
 body
   .wrapper
-    header
-      .navbar
-        .container
-          a(href="./index.html").brand
-            h1 cafe website
-          #popup-menu.nav
-            a(href="#about").nav-link 關於
-            a(href="#service").nav-link 服務
-            a(href="#reservation").nav-link 訂位
-            a(href="#menu").nav-link 菜單
-            a(href="#contact").nav-link 聯絡
-            //- for RWD
-            a(href="#!").close-btn
-              span
-              span
+    header.navbar
+      .container
+        a(href="./index.html").brand
+          h1 cafe website
+        #popup-menu.nav
+          a(href="#about").nav-link 關於
+          a(href="#service").nav-link 服務
+          a(href="#reservation").nav-link 訂位
+          a(href="#menu").nav-link 菜單
+          a(href="#contact").nav-link 聯絡
           //- for RWD
-          a(href="#popup-menu").menu-toggle
+          a(href="#!").close-btn
             span
             span
-            span
+        //- for RWD
+        a(href="#popup-menu").menu-toggle
+          span
+          span
+          span
 
     section.jumbotron
       .mask-dark
