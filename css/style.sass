@@ -259,7 +259,7 @@ a
   &.bg-gray
     background-color: #efefef
 
-/* About us */
+/* about */
 @media screen and (max-width: $width-md)
   .about-preview
     margin-bottom: 48px
@@ -382,8 +382,7 @@ a
     color: $btnColor
 
 /* contact */
-.info-item
-  margin-bottom: 24px
+.contact-info
   & .title
     color: $btnColor
     line-height: 36pxpx
@@ -391,6 +390,8 @@ a
   & .title span
     border-bottom: 2px solid $btnColor
     display: inline-block
+  & .info td
+    padding-bottom: 24px
 
 .map-container
   width: 100%
@@ -463,12 +464,21 @@ footer
   justify-content: center
   align-items: center
 
+/* -------- about.html -------- */
+.about
+  padding: 0 20px
+  & .image-container
+    aspect-ratio: 16/9
+  & p
+    margin: 20px 0
+    line-height: 1.5rem
+
 /* -------- reservation.html -------- */
 .inputbox
   width: 300px
   height: 40px
   margin-bottom: 40px
-  & input, select
+  & input, select, textarea
     width: 100%
     padding: 10px
     border: 2px solid #000
@@ -479,22 +489,29 @@ footer
     left: 20px
     color: rgba(0, 0, 0, 0.5)
     transition: 0.5s
+  & textarea
+    resize: none
   & input:focus ~ label,
   & input:valid ~ label,
   & select:focus ~ label,
-  & select:valid ~ label
+  & select:valid ~ label,
+  & textarea:focus ~ label,
+  & textarea:valid ~ label
     color: $btnColor
     transform: translateX(-17px) translateY(-35px)
-
-.submit
-  width: 50%
-  height: 40px
-  border: none
-  border-radius: 10px
-  color: #fff
-  background: $btnColor
-  &:hover
-    background: $btnColor-hover
+  & input.reset
+    margin-left: 55px
+    width: 30%
+    &:hover
+      background: #e3e3e3
+  & input.submit
+    width: 30%
+    color: #fff
+    background: $btnColor
+    border: 2px solid $btnColor
+    &:hover
+      background: $btnColor-hover
+      border: 2px solid $btnColor-hover
 
 .calender
   margin-top: 20px
@@ -507,3 +524,7 @@ footer
     text-align: center
     padding: 5px 10px
     border: 2px solid black
+
+/* -------- contact.html -------- */
+.inputbox.feedback
+  margin-bottom: 200px

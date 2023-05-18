@@ -1,0 +1,59 @@
+
+<DOCTYPE html="html"></DOCTYPE>
+<html lang="zh-TW"></html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>café website</title>
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="navbar">
+      <div class="container"><a class="brand" href="./index.html">
+          <h1>cafe website</h1></a>
+        <div class="nav" id="popup-menu"><a class="nav-link" href="./about.html">關於</a><a class="nav-link" href="./service.html">服務</a><a class="nav-link" href="./reservation.html">訂位</a><a class="nav-link" href="./menu.html">菜單</a><a class="nav-link" href="./contact.html">聯絡</a><a class="close-btn" href="#!"><span></span><span></span></a></div><a class="menu-toggle" href="#popup-menu"><span></span><span></span><span></span></a>
+      </div>
+    </header>
+    <section class="hero bg-gray">
+      <div class="container flex-col-center">
+        <div class="section-intro">
+          <h2 class="title">聯絡我們</h2>
+          <p class="para">有任何回饋或問題都歡迎填寫回饋表單，或來信告訴我們。</p>
+        </div>
+        <form class="feedback-form" action="/feedback" method="post">
+          <div class="inputbox">
+            <input type="text" name="name" required="required"/>
+            <label for="name">暱稱</label>
+          </div>
+          <div class="inputbox">
+            <input type="email" name="email" required="required"/>
+            <label for="email">電子郵件</label>
+          </div>
+          <div class="inputbox feedback">
+            <textarea type="text" name="feedback" rows="10" required="required"></textarea>
+            <label for="feedback">回饋</label>
+          </div>
+          <div class="inputbox">
+            <input class="reset" type="reset" value="清空"/>
+            <input class="submit" type="submit" value="送出" disabled="disabled"/>
+          </div>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <div class="hero">
+        <div class="mask-dark"></div>
+        <div class="container"><a class="brand" href="#top"></a>
+          <ul class="nav"><a class="nav-link" href="./index.html">回前頁</a></ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Photos from freepik and Unsplash and PNGitem</p>
+        <p>Copyright 2022. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>

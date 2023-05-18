@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="css/normalize.css"/>
   <link rel="stylesheet" href="css/style.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <div class="wrapper">
     <header class="navbar">
-      <div class="container"><a class="brand" href="./index.html"></a>
-        <div class="nav"><a class="nav-link" href="./index.html">回前頁</a></div>
+      <div class="container"><a class="brand" href="./index.html">
+          <h1>cafe website</h1></a>
+        <div class="nav" id="popup-menu"><a class="nav-link" href="./about.html">關於</a><a class="nav-link" href="./service.html">服務</a><a class="nav-link" href="./reservation.html">訂位</a><a class="nav-link" href="./menu.html">菜單</a><a class="nav-link" href="./contact.html">聯絡</a><a class="close-btn" href="#!"><span></span><span></span></a></div><a class="menu-toggle" href="#popup-menu"><span></span><span></span><span></span></a>
       </div>
     </header>
     <section class="hero bg-gray">
@@ -38,20 +38,13 @@
                 <label for="phone">聯絡電話</label>
               </div>
               <div class="inputbox">
-                <select id="date" name="date" required="required">
+                <select id="date-input" name="date" required="required">
                   <option selected="selected" disabled="disabled"></option>
-                  <option value="Sun">6/1(日)</option>
-                  <option value="Mon">6/2(一)</option>
-                  <option value="Tue">6/3(二)</option>
-                  <option value="Wed">6/4(三)</option>
-                  <option value="Thu">6/5(四)</option>
-                  <option value="Fri">6/6(五)</option>
-                  <option value="Sat">6/7(六)</option>
                 </select>
                 <label for="date">日期</label>
               </div>
               <div class="inputbox">
-                <select id="time" name="time" required="required">
+                <select id="time-input" name="time" required="required">
                   <option selected="selected" disabled="disabled"></option>
                   <option value="08:00">08:00</option>
                   <option value="09:00">09:00</option>
@@ -73,150 +66,55 @@
                 <input type="number" name="guests" required="required"/>
                 <label for="guests">人數</label>
               </div>
-              <input class="submit" type="submit" value="預約訂位"/>
+              <div class="inputbox">
+                <input class="reset" type="reset" value="清空"/>
+                <input class="submit" type="submit" value="預約訂位"/>
+              </div>
             </form>
           </div>
           <div class="col-lg-6 col-md-12 flex-col-center">
             <table class="calender">
-              <tr>
+              <tr id="calender-header">
                 <td>時段</td>
-                <td>6/1(日)</td>
-                <td>6/2(一)</td>
-                <td>6/3(二)</td>
-                <td>6/4(三)</td>
-                <td>6/5(四)</td>
-                <td>6/6(五)</td>
-                <td>6/7(六)</td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>08:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>09:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>10:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>11:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>12:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>13:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>14:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>15:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>16:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>17:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>18:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>19:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
-              <tr>
+              <tr class="calender-row">
                 <td>20:00</td>
-                <td class="Sun"></td>
-                <td class="Mon"></td>
-                <td class="Tue"></td>
-                <td class="Wed"></td>
-                <td class="Thu"></td>
-                <td class="Fri"></td>
-                <td class="Sat"></td>
               </tr>
             </table><span style="background-color: pink; padding: 5px 10px; border-radius: 5px">填色代表該時段已預訂</span>
           </div>
@@ -226,8 +124,8 @@
     <footer>
       <div class="hero">
         <div class="mask-dark"></div>
-        <div class="container"><a class="brand" href="#!"></a>
-          <ul class="nav"><a class="nav-link" href="../index.html">回前頁</a></ul>
+        <div class="container"><a class="brand" href="#top"></a>
+          <ul class="nav"><a class="nav-link" href="./index.html">回前頁</a></ul>
         </div>
       </div>
       <div class="copyright">
@@ -237,15 +135,35 @@
     </footer>
   </div>
   <script>
-    $('td:contains("10:00") ~ td.Tue').css('background-color', 'pink');
-    $('td:contains("19:00") ~ td.Wed').css('background-color', 'pink');
+    const today = new Date();
+    const daysOfWeek = ['日', '一', '二', '三', '四', '五', '六'];
+    for (let i = 0; i < 7; i++) {
+      const futureDate = new Date();
+      futureDate.setDate(today.getDate() + i);
+      const month = futureDate.getMonth() + 1;
+      const date = futureDate.getDate();
+      const dayOfWeek = daysOfWeek[futureDate.getDay()];
+      const formattedDate = `${month}/${date}(${dayOfWeek})`;
+    
+      $('#date-input').append(`<option value="${dayOfWeek}">${formattedDate}</option>`)
+      $('#calender-header').append(`<td>${formattedDate}</td>`)
+      $('.calender-row').append(`<td class="${dayOfWeek}"></td>`)
+    }
+    
+    function coloring(time, day) {
+      $(`td:contains("${time}") ~ td.${day}`).css('background-color', 'pink');
+    }
+    
+    coloring('10:00', '日');
+    coloring('15:00', '一');
+    coloring('19:00', '五');
     
     const form = $('form');
     form.submit((evt) => {
       evt.preventDefault();
-      let Day = $('#date').val();
-      let time = $('#time').val();
-      $(`td:contains("${time}") ~ td.${Day}`).css('background-color', 'pink');
+      let day = $('#date-input').val();
+      let time = $('#time-input').val();
+      coloring(time, day);
       form[0].reset();
     })
   </script>

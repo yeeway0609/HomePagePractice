@@ -428,7 +428,7 @@ a {
   background-color: #efefef;
 }
 
-/* About us */
+/* about */
 @media screen and (max-width: 768px) {
   .about-preview {
     margin-bottom: 48px;
@@ -577,17 +577,17 @@ a {
 }
 
 /* contact */
-.info-item {
-  margin-bottom: 24px;
-}
-.info-item .title {
+.contact-info .title {
   color: #b2875c;
   line-height: 36pxpx;
   margin-bottom: 16px;
 }
-.info-item .title span {
+.contact-info .title span {
   border-bottom: 2px solid #b2875c;
   display: inline-block;
+}
+.contact-info .info td {
+  padding-bottom: 24px;
 }
 
 .map-container {
@@ -679,13 +679,25 @@ footer .copyright {
   align-items: center;
 }
 
+/* -------- about.html -------- */
+.about {
+  padding: 0 20px;
+}
+.about .image-container {
+  aspect-ratio: 16/9;
+}
+.about p {
+  margin: 20px 0;
+  line-height: 1.5rem;
+}
+
 /* -------- reservation.html -------- */
 .inputbox {
   width: 300px;
   height: 40px;
   margin-bottom: 40px;
 }
-.inputbox input, .inputbox select {
+.inputbox input, .inputbox select, .inputbox textarea {
   width: 100%;
   padding: 10px;
   border: 2px solid #000;
@@ -698,21 +710,29 @@ footer .copyright {
   color: rgba(0, 0, 0, 0.5);
   transition: 0.5s;
 }
-.inputbox input:focus ~ label, .inputbox input:valid ~ label, .inputbox select:focus ~ label, .inputbox select:valid ~ label {
+.inputbox textarea {
+  resize: none;
+}
+.inputbox input:focus ~ label, .inputbox input:valid ~ label, .inputbox select:focus ~ label, .inputbox select:valid ~ label, .inputbox textarea:focus ~ label, .inputbox textarea:valid ~ label {
   color: #b2875c;
   transform: translateX(-17px) translateY(-35px);
 }
-
-.submit {
-  width: 50%;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
+.inputbox input.reset {
+  margin-left: 55px;
+  width: 30%;
+}
+.inputbox input.reset:hover {
+  background: #e3e3e3;
+}
+.inputbox input.submit {
+  width: 30%;
   color: #fff;
   background: #b2875c;
+  border: 2px solid #b2875c;
 }
-.submit:hover {
+.inputbox input.submit:hover {
   background: #d5a25f;
+  border: 2px solid #d5a25f;
 }
 
 .calender {
@@ -728,4 +748,9 @@ footer .copyright {
   text-align: center;
   padding: 5px 10px;
   border: 2px solid black;
+}
+
+/* -------- contact.html -------- */
+.inputbox.feedback {
+  margin-bottom: 200px;
 }
