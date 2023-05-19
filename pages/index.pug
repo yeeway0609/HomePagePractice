@@ -12,7 +12,7 @@ body
       .container
         a(href="./index.html").brand
           h1 cafe website
-        #popup-menu.nav
+        #popup-nav.nav
           a(href="./about.html").nav-link 關於
           a(href="./service.html").nav-link 服務
           a(href="./reservation.html").nav-link 訂位
@@ -23,7 +23,7 @@ body
             span
             span
         //- for RWD
-        a(href="#popup-menu").menu-toggle
+        a(href="#popup-nav").nav-toggle
           span
           span
           span
@@ -34,7 +34,7 @@ body
         div(style="background-image: url(images/common/logo-w.png);").logo-image
         .btn-container
           a(href="./reservation.html").btn.btn-primary.btn-large 訂位
-          a(href="#!").btn.btn-secondary.btn-large 按鈕
+          a(href="./menu.html").btn.btn-secondary.btn-large 菜單
 
     section#about.hero.bg-white
       .container
@@ -92,7 +92,7 @@ body
           a(href="./reservation.html").btn.btn-secondary.btn-large 訂位請點我
 
     //- 宣告用在 menu 的 mixin
-    mixin ListItem(name, des, imageUrl)
+    mixin MenuItem(name, des, imageUrl)
       a(href="#!")
         .list-item
           .image-container
@@ -101,24 +101,25 @@ body
             h5.title #{name}
             h6.subtitle #{des}
     //-------------------------
+
     section#menu.hero.bg-white
       .container
         .section-intro
           h2.title MENU
-          p.para 一段中文的敘述文字，說明東西的每位及外觀等等的話。多的文字可以換行
+          p.para 所有的餐點一覽
         .menu-list
           .title-bar
             h3.title Coffee
             a(href="./menu.html").btn.btn-secondary.lg-display more
           .row
             .col-lg-3.col-md-4.col-sm-6
-              +ListItem("Caffè Americano", "食物的描述", "images/products/product005.jpg")
+              +MenuItem("Caffè Americano", "食物的描述", "images/products/coffee01.jpg")
             .col-lg-3.col-md-4.col-sm-6
-              +ListItem("Latte", "食物的描述", "images/products/product006.jpg")
+              +MenuItem("Latte", "食物的描述", "images/products/coffee02.jpg")
             .col-lg-3.col-md-4.col-sm-6
-              +ListItem("Mocha", "食物的描述", "images/products/product007.jpg")
+              +MenuItem("Mocha", "食物的描述", "images/products/coffee03.jpg")
             .col-lg-3.col-md-4.col-sm-6
-              +ListItem("Espresso", "食物的描述", "images/products/product008.jpg")
+              +MenuItem("Espresso", "食物的描述", "images/products/coffee04.jpg")
           //- for RWD
           .btn-container.lg-hidden
             a(href="./menu.html").btn.btn-secondary.btn-large more
@@ -128,13 +129,13 @@ body
             a(href="./menu.html").btn.btn-secondary.lg-display more
           .row
             .col-lg-3.col-md-4.col-sm-6
-              +ListItem("Macaron", "食物的描述", "images/products/product009.jpg")
+              +MenuItem("Macaron", "食物的描述", "images/products/dessert01.jpg")
             .col-lg-3.col-md-4.col-sm-6
-              +ListItem("Cake", "食物的描述", "images/products/product010.jpg")
+              +MenuItem("Cake", "食物的描述", "images/products/dessert02.jpg")
             .col-lg-3.col-md-4.col-sm-6
-              +ListItem("Ice cream", "食物的描述", "images/products/product011.jpg")
+              +MenuItem("Ice cream", "食物的描述", "images/products/dessert03.jpg")
             .col-lg-3.col-md-4.col-sm-6
-              +ListItem("Brownie", "食物的描述", "images/products/product012.jpg")
+              +MenuItem("Brownie", "食物的描述", "images/products/dessert04.jpg")
           //- for RWD
           .btn-container.lg-hidden
             a(href="#!").btn.btn-secondary.btn-large more

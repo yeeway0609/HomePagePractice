@@ -159,7 +159,7 @@ a
     color: $btnColor-hover
 
 @media screen and (max-width: $width-md)
-  .navbar #popup-menu
+  .navbar #popup-nav
     display: flex
     position: fixed
     left: 0
@@ -174,12 +174,12 @@ a
     opacity: 0
     visibility: hidden
     transition: all 0.3s
-  #popup-menu:target
+  #popup-nav:target
     opacity: 1
     visibility: visible
 
-/* menu-toggle */
-.navbar .menu-toggle
+/* nav-toggle */
+.navbar .nav-toggle
   width: 48px
   height: 48px
   float: right
@@ -369,15 +369,16 @@ a
     float: right
     padding-top: 8px
     padding-bottom: 8px
-  & .list-item .image-container
+  & .menu-item .image-container
     aspect-ratio: 1/1
-  & .list-item .title
+  & .menu-item .title
     font-size: 18px
     color: $wordColor
     line-height: 24px
     margin-top: 16px
-    margin-bottom: 8px
-  & .list-item .subtitle
+    margin-bottom: 4px
+  & .menu-item .subtitle
+    margin-bottom: 24px
     font-size: 14px
     color: $btnColor
 
@@ -496,6 +497,32 @@ footer
     line-height: 24px
     text-align: justify
 
+.service-tabs
+  display: flex
+  justify-content: center
+  margin-bottom: 50px
+  & .tab
+    width: 150px
+    height: 80px
+    background-color: #d8d8d8
+    border: 2px solid $btnColor-hover
+    cursor: pointer
+    &:hover
+      background-color: #aaaaaa
+    & .image-container
+      width: 40px
+      aspect-ratio: 1/1
+    & p
+      margin-top: 5px
+    &:first-child
+      border-top-left-radius: 10px
+      border-bottom-left-radius: 10px
+    &:last-child
+      border-top-right-radius: 10px
+      border-bottom-right-radius: 10px
+    &.tab--open
+      background-color: $btnColor-hover
+
 /* -------- reservation.html -------- */
 .inputbox
   width: 300px
@@ -537,15 +564,19 @@ footer
       border: 2px solid $btnColor-hover
 
 .calender
+  display: block
+  width: 100%
   margin-top: 20px
   margin-bottom: 20px
+  overflow-x: auto
+  white-space: nowrap
   border-collapse: collapse
   & tr:first-child
     color: #efefef
     background: $btnColor
   & td
     text-align: center
-    padding: 5px 10px
+    padding: 5px 3px
     border: 2px solid black
 
 /* -------- contact.html -------- */

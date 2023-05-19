@@ -304,7 +304,7 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-  .navbar #popup-menu {
+  .navbar #popup-nav {
     display: flex;
     position: fixed;
     left: 0;
@@ -321,13 +321,13 @@ a {
     transition: all 0.3s;
   }
 
-  #popup-menu:target {
+  #popup-nav:target {
     opacity: 1;
     visibility: visible;
   }
 }
-/* menu-toggle */
-.navbar .menu-toggle {
+/* nav-toggle */
+.navbar .nav-toggle {
   width: 48px;
   height: 48px;
   float: right;
@@ -339,11 +339,11 @@ a {
   align-items: center;
 }
 @media screen and (max-width: 768px) {
-  .navbar .menu-toggle {
+  .navbar .nav-toggle {
     display: flex;
   }
 }
-.navbar .menu-toggle span {
+.navbar .nav-toggle span {
   display: block;
   width: 32px;
   height: 2px;
@@ -561,17 +561,18 @@ a {
   padding-top: 8px;
   padding-bottom: 8px;
 }
-.menu-list .list-item .image-container {
+.menu-list .menu-item .image-container {
   aspect-ratio: 1/1;
 }
-.menu-list .list-item .title {
+.menu-list .menu-item .title {
   font-size: 18px;
   color: #333;
   line-height: 24px;
   margin-top: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
-.menu-list .list-item .subtitle {
+.menu-list .menu-item .subtitle {
+  margin-bottom: 24px;
   font-size: 14px;
   color: #b2875c;
 }
@@ -717,6 +718,40 @@ footer .copyright {
   text-align: justify;
 }
 
+.service-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.service-tabs .tab {
+  width: 150px;
+  height: 80px;
+  background-color: #d8d8d8;
+  border: 2px solid #d5a25f;
+  cursor: pointer;
+}
+.service-tabs .tab:hover {
+  background-color: #aaaaaa;
+}
+.service-tabs .tab .image-container {
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+.service-tabs .tab p {
+  margin-top: 5px;
+}
+.service-tabs .tab:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.service-tabs .tab:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.service-tabs .tab.tab--open {
+  background-color: #d5a25f;
+}
+
 /* -------- reservation.html -------- */
 .inputbox {
   width: 300px;
@@ -762,8 +797,12 @@ footer .copyright {
 }
 
 .calender {
+  display: block;
+  width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
   border-collapse: collapse;
 }
 .calender tr:first-child {
@@ -772,7 +811,7 @@ footer .copyright {
 }
 .calender td {
   text-align: center;
-  padding: 5px 10px;
+  padding: 5px 3px;
   border: 2px solid black;
 }
 

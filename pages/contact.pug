@@ -13,7 +13,7 @@ body
       .container
         a(href="./index.html").brand
           h1 cafe website
-        #popup-menu.nav
+        #popup-nav.nav
           a(href="./about.html").nav-link 關於
           a(href="./service.html").nav-link 服務
           a(href="./reservation.html").nav-link 訂位
@@ -24,7 +24,7 @@ body
             span
             span
         //- for RWD
-        a(href="#popup-menu").menu-toggle
+        a(href="#popup-nav").nav-toggle
           span
           span
           span
@@ -33,7 +33,7 @@ body
       .container.flex-col-center
         .section-intro
           h2.title 聯絡我們
-          p.para 有任何回饋或問題都歡迎填寫回饋表單，或來信告訴我們。
+          p.para 有任何回饋或問題都歡迎填寫表單，或來信 example@gmail.com 告訴我們。
         form.feedback-form(action="/feedback" method="post")
           .inputbox
             input(type="text" name="name" required)
@@ -54,7 +54,7 @@ body
         .container
           a(href="#top").brand
           ul.nav
-            a(href="./index.html").nav-link 回前頁
+            a(href="./index.html").nav-link 回首頁
       .copyright
         p Photos from freepik and Unsplash and PNGitem
         p Copyright 2022. All rights reserved.
