@@ -14,12 +14,6 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 a {
   text-decoration: none;
   color: #333;
@@ -251,7 +245,6 @@ a {
   width: 100%;
   aspect-ratio: 4/3;
 }
-
 .image-container .image {
   position: absolute;
   left: 0;
@@ -277,7 +270,7 @@ a {
 /* navbar */
 .navbar {
   height: 64px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: black;
   position: fixed;
   z-index: 10;
   width: 100%;
@@ -296,10 +289,8 @@ a {
   overflow: hidden;
 }
 .navbar .nav {
+  display: flex;
   float: right;
-}
-.navbar .nav .nav-item {
-  float: left;
 }
 .navbar .nav .nav-link {
   display: block;
@@ -313,7 +304,7 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-  .navbar .nav {
+  .navbar #popup-nav {
     display: flex;
     position: fixed;
     left: 0;
@@ -330,13 +321,13 @@ a {
     transition: all 0.3s;
   }
 
-  #popup-menu:target {
+  #popup-nav:target {
     opacity: 1;
     visibility: visible;
   }
 }
-/* menu-toggle */
-.navbar .menu-toggle {
+/* nav-toggle */
+.navbar .nav-toggle {
   width: 48px;
   height: 48px;
   float: right;
@@ -348,11 +339,11 @@ a {
   align-items: center;
 }
 @media screen and (max-width: 768px) {
-  .navbar .menu-toggle {
+  .navbar .nav-toggle {
     display: flex;
   }
 }
-.navbar .menu-toggle span {
+.navbar .nav-toggle span {
   display: block;
   width: 32px;
   height: 2px;
@@ -360,14 +351,19 @@ a {
 }
 
 .navbar .close-btn {
+  display: none;
   width: 48px;
   height: 48px;
   position: absolute;
   top: 8px;
   right: 8px;
 }
+@media screen and (max-width: 768px) {
+  .navbar .close-btn {
+    display: block;
+  }
+}
 .navbar .close-btn span {
-  display: none;
   width: 40px;
   height: 2px;
   position: absolute;
@@ -376,11 +372,6 @@ a {
   background-color: #b2875c;
   top: 50%;
   left: 50%;
-}
-@media screen and (max-width: 768px) {
-  .navbar .close-btn span {
-    display: block;
-  }
 }
 .navbar .close-btn span:first-child {
   transform: translate(-50%, -50%) rotate(45deg);
@@ -421,8 +412,8 @@ a {
 
 /* hero */
 .hero {
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 @media screen and (max-width: 768px) {
   .hero {
@@ -437,7 +428,7 @@ a {
   background-color: #efefef;
 }
 
-/* about preview */
+/* about */
 @media screen and (max-width: 768px) {
   .about-preview {
     margin-bottom: 48px;
@@ -447,7 +438,7 @@ a {
   font-size: 32px;
   color: #333;
   margin-bottom: 24px;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 @media screen and (max-width: 960px) {
   .about-preview .title {
@@ -570,33 +561,34 @@ a {
   padding-top: 8px;
   padding-bottom: 8px;
 }
-.menu-list .list-item .image-container {
+.menu-list .menu-item .image-container {
   aspect-ratio: 1/1;
 }
-.menu-list .list-item .title {
+.menu-list .menu-item .title {
   font-size: 18px;
   color: #333;
   line-height: 24px;
   margin-top: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
-.menu-list .list-item .subtitle {
+.menu-list .menu-item .subtitle {
+  margin-bottom: 24px;
   font-size: 14px;
   color: #b2875c;
 }
 
 /* contact */
-.info-item {
-  margin-bottom: 24px;
-}
-.info-item .title {
+.contact-info .title {
   color: #b2875c;
-  line-height: 36pxpx;
+  line-height: 36px;
   margin-bottom: 16px;
 }
-.info-item .title span {
+.contact-info .title span {
   border-bottom: 2px solid #b2875c;
   display: inline-block;
+}
+.contact-info .info td {
+  padding-bottom: 24px;
 }
 
 .map-container {
@@ -627,7 +619,7 @@ footer .hero {
 footer .brand {
   display: block;
   width: 240px;
-  height: 240px;
+  height: 120px;
   margin: 0 auto;
   background-image: url("../images/common/logo-w.png");
   background-size: contain;
@@ -644,17 +636,17 @@ footer .nav {
   display: flex;
   justify-content: center;
 }
-footer .nav .nav-link {
+footer .nav-link {
   color: #fff;
   display: block;
   padding: 24px;
   transition: all 0.3s;
 }
-footer .nav .nav-link:hover {
+footer .nav-link:hover {
   color: #b2875c;
 }
 @media screen and (max-width: 540px) {
-  footer .nav .nav-link {
+  footer .nav-link {
     padding: 24px 8px;
   }
 }
@@ -680,4 +672,150 @@ footer .copyright {
   .lg-display {
     display: none;
   }
+}
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------- about.html -------- */
+.about {
+  padding: 0 20px;
+}
+.about .image-container {
+  aspect-ratio: 16/9;
+}
+.about p {
+  margin: 20px 0;
+  line-height: 1.5rem;
+}
+
+/* -------- service.html -------- */
+.container.service-container {
+  width: 60%;
+}
+
+.image-container.service-item {
+  height: 200px;
+  width: 200px;
+  margin-bottom: 24px;
+}
+
+.service-info h4 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-size: 24px;
+  color: #b2875c;
+  border-bottom: 2px solid #b2875c;
+}
+.service-info .para {
+  margin-bottom: 24px;
+  color: #333;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: justify;
+}
+
+.service-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.service-tabs .tab {
+  width: 150px;
+  height: 80px;
+  background-color: #d8d8d8;
+  border: 2px solid #d5a25f;
+  cursor: pointer;
+}
+.service-tabs .tab:hover {
+  background-color: #aaaaaa;
+}
+.service-tabs .tab .image-container {
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+.service-tabs .tab p {
+  margin-top: 5px;
+}
+.service-tabs .tab:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.service-tabs .tab:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.service-tabs .tab.tab--open {
+  background-color: #d5a25f;
+}
+
+/* -------- reservation.html -------- */
+.inputbox {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 40px;
+}
+.inputbox input, .inputbox select, .inputbox textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+.inputbox label {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+.inputbox textarea {
+  resize: none;
+}
+.inputbox input:focus ~ label, .inputbox input:valid ~ label, .inputbox select:focus ~ label, .inputbox select:valid ~ label, .inputbox textarea:focus ~ label, .inputbox textarea:valid ~ label {
+  color: #b2875c;
+  transform: translateX(-17px) translateY(-35px);
+}
+.inputbox input.reset {
+  margin-left: 55px;
+  width: 30%;
+}
+.inputbox input.reset:hover {
+  background: #e3e3e3;
+}
+.inputbox input.submit {
+  width: 30%;
+  color: #fff;
+  background: #b2875c;
+  border: 2px solid #b2875c;
+}
+.inputbox input.submit:hover {
+  background: #d5a25f;
+  border: 2px solid #d5a25f;
+}
+
+.calender {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-collapse: collapse;
+}
+.calender tr:first-child {
+  color: #efefef;
+  background: #b2875c;
+}
+.calender td {
+  text-align: center;
+  padding: 5px 3px;
+  border: 2px solid black;
+}
+
+/* -------- contact.html -------- */
+.inputbox.feedback {
+  margin-bottom: 200px;
 }

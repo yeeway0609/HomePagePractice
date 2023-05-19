@@ -9,6 +9,7 @@ $width-sm: 540px
   background-repeat: no-repeat
   background-position: center
 
+
 /* -------- Global -------- */
 *
   box-sizing: border-box
@@ -20,11 +21,6 @@ html, body
 
 h1,h2,h3,h4,h5,h6,p
   margin: 0
-
-ul
-  margin: 0
-  padding: 0
-  list-style: none
 
 a
   text-decoration: none
@@ -111,17 +107,16 @@ a
 .image-container
   width: 100%
   aspect-ratio: 4/3
-
-.image-container .image
-  position: absolute
-  left: 0
-  top: 0
-  right: 0
-  bottom: 0
-  background-size: cover
-  background-repeat: no-repeat
-  background-position: center
-  border-radius: 10px
+  & .image
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    border-radius: 10px
 
 /* mask-dark */
 .mask-dark
@@ -135,7 +130,7 @@ a
 /* navbar */
 .navbar
   height: 64px
-  background-color: rgba(0,0,0,0.8)
+  background-color: rgba(0,0,0)
   position: fixed
   z-index: 10
   width: 100%
@@ -152,9 +147,8 @@ a
     text-indent: 100%
     overflow: hidden
   & .nav
+    display: flex
     float: right
-  & .nav .nav-item
-    float: left
   & .nav .nav-link
     display: block
     color: #fff
@@ -165,7 +159,7 @@ a
     color: $btnColor-hover
 
 @media screen and (max-width: $width-md)
-  .navbar .nav
+  .navbar #popup-nav
     display: flex
     position: fixed
     left: 0
@@ -180,12 +174,12 @@ a
     opacity: 0
     visibility: hidden
     transition: all 0.3s
-  #popup-menu:target
+  #popup-nav:target
     opacity: 1
     visibility: visible
 
-/* menu-toggle */
-.navbar .menu-toggle
+/* nav-toggle */
+.navbar .nav-toggle
   width: 48px
   height: 48px
   float: right
@@ -205,13 +199,16 @@ a
     background-color: $btnColor
 
 .navbar .close-btn
+  display: none
   width: 48px
   height: 48px
   position: absolute
   top: 8px
   right: 8px
+  @media screen and (max-width: $width-md)
+    &
+      display: block
   & span
-    display: none
     width: 40px
     height: 2px
     position: absolute
@@ -220,9 +217,6 @@ a
     background-color: $btnColor
     top: 50%
     left: 50%
-  @media screen and (max-width: $width-md)
-    & span
-      display: block
   & span:first-child
     transform: translate(-50%,-50%) rotate(45deg)
   & span:last-child
@@ -254,8 +248,8 @@ a
 
 /* hero */
 .hero
-  padding-top: 200px
-  padding-bottom: 200px
+  padding-top: 150px
+  padding-bottom: 150px
   @media screen and (max-width: $width-md)
     &
       padding-top: 80px
@@ -265,7 +259,7 @@ a
   &.bg-gray
     background-color: #efefef
 
-/* about preview */
+/* about */
 @media screen and (max-width: $width-md)
   .about-preview
     margin-bottom: 48px
@@ -275,7 +269,7 @@ a
     font-size: 32px
     color: $wordColor
     margin-bottom: 24px
-    margin-top: 80px
+    margin-top: 50px
   @media screen and (max-width: $width-lg)
     & .title
       margin-top: 0
@@ -375,28 +369,30 @@ a
     float: right
     padding-top: 8px
     padding-bottom: 8px
-  & .list-item .image-container
+  & .menu-item .image-container
     aspect-ratio: 1/1
-  & .list-item .title
+  & .menu-item .title
     font-size: 18px
     color: $wordColor
     line-height: 24px
     margin-top: 16px
-    margin-bottom: 8px
-  & .list-item .subtitle
+    margin-bottom: 4px
+  & .menu-item .subtitle
+    margin-bottom: 24px
     font-size: 14px
     color: $btnColor
 
 /* contact */
-.info-item
-  margin-bottom: 24px
+.contact-info
   & .title
     color: $btnColor
-    line-height: 36pxpx
+    line-height: 36px
     margin-bottom: 16px
   & .title span
     border-bottom: 2px solid $btnColor
     display: inline-block
+  & .info td
+    padding-bottom: 24px
 
 .map-container
   width: 100%
@@ -422,28 +418,28 @@ footer
   & .brand
     display: block
     width: 240px
-    height: 240px
+    height: 120px
     margin: 0 auto
     background-image: url('../images/common/logo-w.png')
     background-size: contain
     background-repeat: no-repeat
     background-position: center
   @media screen and (max-width: $width-sm)
-     & .brand
+    & .brand
       width: 200px
       height: 200px
   & .nav
     display: flex
     justify-content: center
-  & .nav .nav-link
+  & .nav-link
     color: #fff
     display: block
     padding: 24px
     transition: all 0.3s
-  & .nav .nav-link:hover
+  & .nav-link:hover
     color: $btnColor
   @media screen and (max-width: $width-sm)
-    & .nav .nav-link
+    & .nav-link
       padding: 24px 8px
   & .copyright
     background-color: rgba(0,0,0,0.8)
@@ -462,3 +458,127 @@ footer
     display: block
   .lg-display
     display: none
+
+.flex-col-center
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+/* -------- about.html -------- */
+.about
+  padding: 0 20px
+  & .image-container
+    aspect-ratio: 16/9
+  & p
+    margin: 20px 0
+    line-height: 1.5rem
+
+/* -------- service.html -------- */
+.container.service-container
+  width: 60%
+
+.image-container.service-item
+  height: 200px
+  width: 200px
+  margin-bottom: 24px
+
+.service-info
+  & h4
+    margin-top: 24px
+    margin-bottom: 12px
+    font-size: 24px
+    color: $btnColor
+    border-bottom: 2px solid $btnColor
+  & .para
+    margin-bottom: 24px
+    color: $wordColor
+    font-size: 16px
+    line-height: 24px
+    text-align: justify
+
+.service-tabs
+  display: flex
+  justify-content: center
+  margin-bottom: 50px
+  & .tab
+    width: 150px
+    height: 80px
+    background-color: #d8d8d8
+    border: 2px solid $btnColor-hover
+    cursor: pointer
+    &:hover
+      background-color: #aaaaaa
+    & .image-container
+      width: 40px
+      aspect-ratio: 1/1
+    & p
+      margin-top: 5px
+    &:first-child
+      border-top-left-radius: 10px
+      border-bottom-left-radius: 10px
+    &:last-child
+      border-top-right-radius: 10px
+      border-bottom-right-radius: 10px
+    &.tab--open
+      background-color: $btnColor-hover
+
+/* -------- reservation.html -------- */
+.inputbox
+  width: 300px
+  height: 40px
+  margin-bottom: 40px
+  & input, select, textarea
+    width: 100%
+    padding: 10px
+    border: 2px solid #000
+    border-radius: 10px
+  & label
+    position: absolute
+    top: 14px
+    left: 20px
+    color: rgba(0, 0, 0, 0.5)
+    transition: 0.5s
+  & textarea
+    resize: none
+  & input:focus ~ label,
+  & input:valid ~ label,
+  & select:focus ~ label,
+  & select:valid ~ label,
+  & textarea:focus ~ label,
+  & textarea:valid ~ label
+    color: $btnColor
+    transform: translateX(-17px) translateY(-35px)
+  & input.reset
+    margin-left: 55px
+    width: 30%
+    &:hover
+      background: #e3e3e3
+  & input.submit
+    width: 30%
+    color: #fff
+    background: $btnColor
+    border: 2px solid $btnColor
+    &:hover
+      background: $btnColor-hover
+      border: 2px solid $btnColor-hover
+
+.calender
+  display: block
+  width: 100%
+  margin-top: 20px
+  margin-bottom: 20px
+  overflow-x: auto
+  white-space: nowrap
+  border-collapse: collapse
+  & tr:first-child
+    color: #efefef
+    background: $btnColor
+  & td
+    text-align: center
+    padding: 5px 3px
+    border: 2px solid black
+
+/* -------- contact.html -------- */
+.inputbox.feedback
+  margin-bottom: 200px
