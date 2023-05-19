@@ -8,6 +8,7 @@
 html, body {
   font-family: "微軟正黑體", arial;
   background-color: #000;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -788,11 +789,11 @@ footer .copyright {
 .inputbox input.submit {
   width: 30%;
   color: #fff;
-  background: #b2875c;
+  background-color: #b2875c;
   border: 2px solid #b2875c;
 }
 .inputbox input.submit:hover {
-  background: #d5a25f;
+  background-color: #d5a25f;
   border: 2px solid #d5a25f;
 }
 

@@ -18,6 +18,7 @@ $width-sm: 540px
 html, body
   font-family: '微軟正黑體', arial
   background-color: #000
+  overflow-x: hidden // for Safari RWD
 
 h1,h2,h3,h4,h5,h6,p
   margin: 0
@@ -557,10 +558,10 @@ footer
   & input.submit
     width: 30%
     color: #fff
-    background: $btnColor
+    background-color: $btnColor
     border: 2px solid $btnColor
     &:hover
-      background: $btnColor-hover
+      background-color: $btnColor-hover
       border: 2px solid $btnColor-hover
 
 .calender
